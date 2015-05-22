@@ -66,3 +66,36 @@
   }
 
 }
+
+@mixin extend-button-size($ms, $txt, $border-size:1px) {
+
+  border-width: $border-size;
+  padding: (ms($ms - 1) - $border-size) (ms($ms) - $border-size);
+  @include font-size($txt);
+
+}
+
+@mixin extend-button-style($bg, $color, $border-radius, $border-color:$bg) {
+
+  background: $bg;
+  border-style: solid;
+  border-color: $border-color;
+  border-radius: $border-radius;
+  color: $color;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    background: darken($bg, 5);
+    color: lighten($color, 5);
+    transition: background-color .3s;
+  }
+
+  &:active:not(:disabled) {
+    background: darken($bg, 10);
+    color: lighten($color, 10);
+  }
+
+  &:disabled {
+    opacity: .5;
+  }
+}
