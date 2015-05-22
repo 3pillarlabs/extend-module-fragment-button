@@ -1,0 +1,68 @@
+//==========================================================================
+//   Buttons
+//==========================================================================
+
+%fragment-button {
+
+  //Correct inability to style clickable types in iOS.
+  -webkit-appearance: button;
+
+  // Reset unusual Firefox-on-Android default style;
+  background-image: none;
+
+  //Correct color properties not being inherited
+  color: inherit;
+
+  //Force elements to appear clickable
+  cursor: pointer;
+
+  //Allow us to better style box model properties
+  display: inline-block;
+
+  //Force buttons to inherit font styles
+  font: inherit;
+
+  //Address margins set differently in Firefox 4+, Safari, and Chrome
+  margin: 0;
+
+  //Address `overflow` set to `hidden` in IE 8/9/10/11
+  overflow: visible;
+
+  text-align: center;
+
+  //Don’t allow buttons to have underlines
+  text-decoration: none;
+
+  //Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera
+  text-transform: none;
+
+  //Line up different sized buttons
+  vertical-align: middle;
+
+  //Don't let buttons wrap
+  white-space: nowrap;
+
+  &,
+  &:hover {
+    //Don’t allow buttons to have underlines
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &[disabled] {
+    // Set cursor for disabled elements.
+    cursor: not-allowed;
+    // Future-proof disabling of clicks
+    pointer-events: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+}

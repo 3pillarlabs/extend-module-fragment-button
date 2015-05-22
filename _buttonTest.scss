@@ -1,0 +1,73 @@
+//==========================================================================
+//   Test states
+//==========================================================================
+
+@function ms($i) {
+
+  @return modular-scale($vr-base-size, $i, $vr-ms-ratio);
+
+}
+
+@mixin button-size($ms, $txt, $border-size:1px) {
+
+  border-width: $border-size;
+  padding: (ms($ms - 1) - $border-size) (ms($ms) - $border-size);
+  @include font-size($txt);
+
+}
+
+@mixin button-style($bg, $color, $border-radius, $border-color:$bg) {
+
+  background: $bg;
+  border-style: solid;
+  border-color: $border-color;
+  border-radius: $border-radius;
+  color: $color;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    background: darken($bg, 5);
+    color: lighten($color, 5);
+    transition: background-color .3s;
+  }
+
+  &:active:not(:disabled) {
+    background: darken($bg, 10);
+    color: lighten($color, 10);
+  }
+
+  &:disabled {
+    opacity: .5;
+  }
+}
+
+button {
+
+  @extend %fragment-button;
+
+  &.primary {
+    @include button-style(#3071a9, #fff, 2px);
+  }
+
+  &.plain {
+    @include button-style(#fff, #222, 2px, #95a5a6);
+  }
+
+  &.small {
+    @include button-size(-1, 12px, 1px);
+  }
+
+  &.medium {
+    @include button-size(-1, 14px, 1px);
+  }
+
+  &.large {
+    @include button-size(0, 18px, 2px);
+  }
+}
+
+// Page Test Styles
+
+div {
+  margin: 10px 0;
+}
